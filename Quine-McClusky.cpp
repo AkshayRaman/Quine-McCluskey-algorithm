@@ -1,4 +1,4 @@
-#include <string.h>
+decToBindecToBin#include <string.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -45,9 +45,9 @@ vector<string> getVars()
 */
 string decToBin(int n)
 {
-   if ( n == 0 || n == 1) 
-       return n;
-       
+   if ( n == 0 || n == 1)
+       return n+"";
+
    if ( n % 2 == 0 )
        return decToBin(n / 2) + "0";
    else
@@ -146,7 +146,7 @@ string getValue(string a)
    vector<string> vars=this->getVars();
    if(a==dontcares)
      return "1";
-   
+
    for(int i=0;i<a.length();i++)
    {
      if(a[i]!='-')
