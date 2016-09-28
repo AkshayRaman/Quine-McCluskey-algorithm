@@ -9,7 +9,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstring>
-#include <conio.h>
 #include <math.h>
 
 using namespace std;
@@ -97,8 +96,7 @@ bool in_vector(vector<string> a,string b)
      if(a[i].compare(b)==0)
       return true;
     return false;
-   }
-
+}
 
 //function to reduce minterms
 vector<string> reduce(vector<string> minterms)
@@ -184,11 +182,14 @@ int main ()
    char check='y';
    while(check=='y')
    {
-      system("CLS");
       int no;
       cout<<endl<<"Enter the number of variables:"<<endl;
       cin>>no;
-
+      if(no > 8 || no < 1)
+      {
+          cout << "Invalid number of variables (1-8)" << endl;
+          continue;
+      }
       QM q(no);
 
       string temp="";
@@ -216,8 +217,7 @@ int main ()
 
 
       int i;
-      cout<<"The reduced boolean expression in SOP form:"<<endl;
-
+      cout << "The reduced boolean expression in SOP form:" << endl;
       for (i=0;i<minterms.size()-1; i++)
           cout <<q.getValue(minterms[i])<<"+";
       cout<<q.getValue(minterms[i])<<endl;
@@ -225,6 +225,5 @@ int main ()
       cout<<"Would you like to enter another expression? (y/n)"<<endl;
       cin>>check;
    }
-   cout<<endl<<"---END--"<<endl<<"Created by Akshay";
-   //getch();
+   cout<<endl<<"---END--"<<endl<<"Created by Akshay"<<endl;
 }
