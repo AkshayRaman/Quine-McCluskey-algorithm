@@ -44,7 +44,7 @@ vector<string> getVars()
 */
 string decToBin(int n)
 {
-   if ( n == 0 || n == 1)
+   if ( n == 0 )
        return n+"";
 
    if ( n % 2 == 0 )
@@ -108,7 +108,7 @@ vector<string> reduce(vector<string> minterms)
       vector<string> newminterms;
 
       int max=minterms.size();
-      int checked[max];
+      int* checked = new int[max];
       for(int i=0;i<max;i++)
       {
           for(int j=i;j<max;j++)
@@ -132,6 +132,8 @@ vector<string> reduce(vector<string> minterms)
            newminterms.push_back(minterms[i]);
       }
 
+       delete[] checked;
+   
        return newminterms;
 }
 
